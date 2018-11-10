@@ -1,28 +1,22 @@
-#include "lib/customMaths.h"
+#include "lib/customOps.h"
 #include <gtest/gtest.h> // googletest header file
 
 // This is the private method to be tested by SubstractOperator
-extern "C" int resta(int op1, int op2);
+extern "C" void modifyMyPrivateVariable(int value);
 
+TEST(CustomOps, VerifyThatTheMethodReturnsZero) {
+	
+	modifyMyPrivateVariable(0);
+	EXPECT_EQ(0, returnTrueIfAPrivateMethodIsCalled());
 
-TEST(CustoMathBasics, AddOperator) {
-	int result;
-	result = suma(1, 1);
-	EXPECT_EQ(2, result);
 }
 
-TEST(CustoMathBasics, SubstractOperator) {
-	int result;
-	result = resta(1, 2);
-	EXPECT_EQ(-1, result);
-}
+TEST(CustomOps, VerifyThatTheMethodReturnsOne) {
 
-TEST(CustoMathBasics, SubstractOperatorResultsZero) {
-	int result;
-	result = resta(1, 1);
-	EXPECT_EQ(0, result);
-}
+	modifyMyPrivateVariable(1);
+	EXPECT_EQ(1, returnTrueIfAPrivateMethodIsCalled());
 
+}
 
 int main(int argc, char **argv) {
 	::testing::InitGoogleTest(&argc, argv);

@@ -19,17 +19,18 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="lib\customMaths.c" />
+    <ClCompile Include="lib\customOps.c" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="lib\customMaths.h" />
+    <ClInclude Include="lib\customOps.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{08FDC15F-10F5-4A14-A38B-27D8A5C952BC}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>vs_test_customMaths</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <ProjectName>vs_test_customOps</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

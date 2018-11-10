@@ -1,11 +1,13 @@
 /*
-	customMaths.h
+	customOps.h
 */
 
 #ifdef __cplusplus
 extern "C" {
 #endif
-int suma(int op1, int op2);
+
+int returnTrueIfAPrivateMethodIsCalled();
+
 #ifdef __cplusplus
 }
 #endif
