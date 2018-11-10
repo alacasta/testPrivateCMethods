@@ -22,7 +22,8 @@ void myPublicMethodToBeTested()
   }
 }
 ```
-usually requires to use that private method _changeMyVariable() from the test case so that the precondition is satisfied.
+
+We can discuss wether such situation should be enforced or all the mechanisms needed to reach such situations should be triggered. However, simplified test preconditions when testing internals make sense also. To do that, you'd usually requires to use that private method _changeMyVariable() from the test case so that the precondition is satisfied. Again, how this method is called from the logical point of view is out of discussion.
 
 ## Practical application
 Given the library lib/customOps which has the following interface
@@ -69,9 +70,16 @@ TEST(CustomOps, VerifyThatTheMethodReturnsOne) {
 
 }
 ```
+The tricky part here is to provide some *friend-like* mechanism to solve this. One solution may be to define its (no-so) public API like
 
+```
+extern "C" void modifyMyPrivateVariable(int value);
+```
 
-let me insisct in the fact about that this situation should never occured since internal mechanisms might be abstracted somehow in order to follow an accurate architecture. This is only provided as an example about how to proceed when complex mechanisms should be analyzed by manuipulating "internals"
+so that the compiler knows how the method looks like and then the linker will finally solve the situation.
+
+## Additional comments
+Let me insisct in the fact about that this situation should never occured since internal mechanisms might be abstracted somehow in order to follow an accurate architecture. This is only provided as an example about how to proceed when complex mechanisms should be analyzed by manuipulating "internals"
 
 
 
