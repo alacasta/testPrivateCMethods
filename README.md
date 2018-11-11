@@ -4,7 +4,7 @@
 This repository has been created to provide an solution for testing/call those private methods that sometimes should be needed for creating preconditions in the test considering that these are sometimes not puclicly exposed
 
 ## Use case
-The typical case where we have some private method like
+I am interested in analyzing that case where some private method like
 ```
 void _changeMyVariable()
 {
@@ -12,11 +12,11 @@ void _changeMyVariable()
 }
 ```
 
-but we want to test the branch of the public method like
+can be called externally (somebody defined such callback to be defined) and the public method to be tested depends on changes produced by that method (i.e  test the branch of the public method like)
 ```
 void myPublicMethodToBeTested()
 {
-  if myVariable
+  if _myVariable
   {
       // Call Whatever
   }
